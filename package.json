@@ -1,5 +1,6 @@
 {
-	"name": "j5g3-jsdoc-parser",
+	"name": "j5g3.jsdoc-parser",
 	"description": "A fast and simple event driven jsdoc3 parser. Runs in the browser and node.js",
-	"version": "0.1.1"
+	"version": "0.1.1",
+	"main": "jsdoc-parser.js"
 }

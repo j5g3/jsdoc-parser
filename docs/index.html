@@ -16,7 +16,7 @@
 	var compiler = new cxl.docs.Compiler();		
 	
 	$.when(
-		$.ajax({ url: '../jsdoc.js', dataType: 'text' }),
+		$.ajax({ url: '../jsdoc-parser.js', dataType: 'text' }),
 		$.ajax({ url: 'template.html', dataType: 'text' })
 	).done(function(source, template) {	
 		
