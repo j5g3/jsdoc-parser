@@ -35,7 +35,7 @@ Define your handler:
 		
 	}
 	
-	var parser = new cxl.JSDocParser(handler);
+	var parser = new j5g3.JSDocParser(handler);
 	parser.parse(comment);
 	
 	// You can also pass data to the handler using the meta parameter.
@@ -45,7 +45,7 @@ Define your handler:
 If you just want to parse the jsdoc comment into an object you don't need
 to pass a handler.
 
-	var parser = new cxl.JSDocParser();
+	var parser = new j5g3.JSDocParser();
 	var result = {};
 	
 	parser.parse(/** @alias Alias */, result);
