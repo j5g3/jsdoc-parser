@@ -2,6 +2,10 @@
 (function(exports) {
 "use strict";
 
+	/**
+	 * Handler used when no handler is passed to the
+	 * JSDocParser constructor.
+	 */
 	var DefaultHandler = {
 
 		handle: function(current)
@@ -18,7 +22,39 @@
 	};
 
 	/**
-	 * General JSDOC Parser
+	 * JSDOC Parser
+	 *
+	 * @param {object} handler Optional handler object.
+	 *
+	 * The handler is an object like this:
+	 *
+	 * <pre><code>
+	 * var handler = {
+	 *
+	 *     alias: function(tag)
+	 *     {
+	 *     // do something when it finds tag alias
+	 *     },
+	 *     // Handle all other tags
+	 *     handle: function(tag)
+	 *     {
+	 *     }
+	 * }
+	 * </code></pre>
+	 *
+	 * The <code>tag</code> parameter will contain the following fields:
+	 *
+	 * <pre><code>
+	 * tag = {
+	 *     tag: null,
+	 *     type: null,
+	 *     ident: null,
+	 *     text: null,
+	 *     start: 0,
+	 *     end: 0,
+	 *     meta: null
+	 * }
+	 * </code></pre>
 	 */
 	function JSDocParser(handler)
 	{
@@ -39,7 +75,7 @@
 	JSDocParser.prototype = {
 
 		REGEX: /@(\w+)([ \t]*)(.*)$/gm,
-		CLEAN: /^[\s\/\*]+|[ \t]+$/gm,
+		CLEAN: /^\s*[\/\*]+\s?|[ \t]+$/gm,
 
 		TYPE: /^\{\(?([\w\d_ <>\|\.\#]+)\)?\}\s*|([\w\d_\.#]+)\s*/,
 		TYPENAMETEXT: /^\{\(?([ <>\w\d_\|\.\#]+)\)?\}\s*([\.\w\d_]*)\s*(.*)/,
@@ -74,6 +110,9 @@
 			*/
 		},
 
+		/** @private
+		 * Builds the parser map.
+		 */
 		_buildMap: function()
 		{
 			var map = {}, parser, tags, tag;
@@ -90,6 +129,7 @@
 			return map;
 		},
 
+		/** @private */
 		parseNameText: function(current, text)
 		{
 			var m = this.NAMETEXT.exec(text);
@@ -102,6 +142,7 @@
 			return text.length;
 		},
 
+		/** @private */
 		parseTypeNameText: function(current, text)
 		{
 			var m = this.TYPENAMETEXT.exec(text);
@@ -119,6 +160,7 @@
 
 		},
 
+		/** @private */
 		parseTypeText: function(current, text)
 		{
 			var m = this.TYPETEXT.exec(text);
@@ -127,6 +169,7 @@
 			return text.length;
 		},
 
+		/** @private */
 		parseType: function(current, text)
 		{
 			var m = this.TYPE.exec(text);
@@ -138,12 +181,14 @@
 			return m && m[0].length;
 		},
 
+		/** @private */
 		parseText: function(current, text)
 		{
 			current.text = text;
 			return text.length;
 		},
 
+		/** @private */
 		parseMatch: function(match)
 		{
 		var
@@ -163,6 +208,7 @@
 			return current;
 		},
 
+		/** @private */
 		parseRegex: function(comment, regex)
 		{
 			var match, current, tag;
