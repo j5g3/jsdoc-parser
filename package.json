@@ -3,5 +3,6 @@
 	"description": "A fast and simple event driven jsdoc3 parser. Runs in the browser and node.js",
 	"version": "0.1.1",
 	"main": "jsdoc-parser.js",
-	"files": [ "jsdoc-parser.js" ]
+	"files": [ "jsdoc-parser.js" ],
+	"license": "GPLv3"
 }
