@@ -61,6 +61,6 @@ result will contain an object like:
 		param: { type: 'Type', ident: 'name', text: 'Description' }
 	}
 	
-For more information see the documentation at http://giancarlo.github.io/jsdoc.js/docs.
+For more information see the [documentation](http://j5g3.github.io/jsdoc-parse/docs).
 	
 	
