@@ -89,7 +89,8 @@
 			'const': 'constant',
 			'constructor': 'constructor',
 			'emits': 'fires',
-			'return': 'returns'
+			'return': 'returns',
+			'memberOf': 'memberof'
 		},
 
 		parsers: {

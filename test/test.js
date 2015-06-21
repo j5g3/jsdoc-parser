@@ -1,7 +1,7 @@
 
 module('JSDocParser');
 
-var jsdoc = new cxl.JSDocParser();
+var jsdoc = new j5g3.JSDocParser();
 
 test('Initialization', function(a) {
 

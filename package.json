@@ -4,5 +4,15 @@
 	"version": "0.1.1",
 	"main": "jsdoc-parser.js",
 	"files": [ "jsdoc-parser.js" ],
-	"license": "GPLv3"
+	"license": "GPLv3",
+	
+	"devDependencies": {
+		"grunt": "*",
+		"grunt-contrib-jshint": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-karma": "*",
+		"karma-qunit": "*",
+		"karma-coverage": "*",
+		"karma-phantomjs-launcher": "*"
+	}
 }
